@@ -8,8 +8,7 @@ Project for person detection using custom-trained models and YOLO.
 - [Introduction](#introduction)
 - [How to Use This Repository](#how-to-use-this-repository)
 - [File Descriptions](#file-descriptions)
-- [Project Structure](#project-structure)
-- [Setup Instructions](#setup-instructions)
+- [Work Remain](#work-remain)
 
 ## how-to-use-this-repository
 
@@ -113,7 +112,21 @@ person2.h5: The model trained using RGB-generated images but failed to generaliz
 person3.h5: A refined model trained using an augmented dataset where human figures were pixelated, significantly improving performance.
 Person_V2.h5: Model trained using the improved dataV2 dataset.
 
+## work-remain
 
+Integrate Face Detection into Video Processing:
+
+The Face_Mark_Script.py has been used to annotate faces in the dataV2 dataset with Pascal VOC XML format.
+The next step is to train a model specifically for face detection using these annotations and integrate it into the VideoPersonDetection.py script.
+
+Enhance Real-Time Video Detection:
+
+Modify the video detection pipeline to identify faces in real-time and draw bounding boxes around them.
+
+Optimize and Fine-Tune:
+
+Fine-tune the face detection model for accuracy and real-time performance.
+Test the model on diverse video inputs to ensure robustness and precision.
 
 
 
