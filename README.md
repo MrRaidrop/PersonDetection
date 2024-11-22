@@ -24,13 +24,13 @@ Project for person detection using custom-trained models and YOLO.
 opencv：
 ```bash
 pip install opencv-python
-pip install opencv-python-headless
+pip install opencv-python-headless```
 
 yolov5:
 ```bash
 git clone https://github.com/ultralytics/yolov5.git
 cd yolov5
-pip install -r requirements.txt
+pip install -r requirements.txt```
 
 - NumPy, Pandas, and other standard libraries
 
