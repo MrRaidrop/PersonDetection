@@ -6,17 +6,38 @@ Project for person detection using custom-trained models and YOLO.
 
 ## Table of Contents
 - [Introduction](#introduction)
-- [File Descriptions](#file-descriptions)
-- [Key Models](#key-models)
 - [How to Use This Repository](#how-to-use-this-repository)
+- [File Descriptions](#file-descriptions)
 - [Project Structure](#project-structure)
 - [Setup Instructions](#setup-instructions)
 
+## how-to-use-this-repository
 
-##how-to-use-this-repository
-Prepare the Environment:
+### Prerequisites
+- Python 3.10 or higher
+- TensorFlow 2.11 (if you don't want to use cuda, just use lastest version)
+- OpenCV 4.10
+- CUDA 11.8 (if you don't want to use cuda, just ignore it)
+- cuDNN 8.8 (if you don't want to use cuda, just ignore it)
+
+### Prepare the Environment:
+opencv：
+```bash
+pip install opencv-python
+pip install opencv-python-headless
+
+yolov5:
+```bash
+git clone https://github.com/ultralytics/yolov5.git
+cd yolov5
+pip install -r requirements.txt
+
+- NumPy, Pandas, and other standard libraries
+
+
 
 Ensure OpenCV, TensorFlow, and other required libraries are installed.
+
 Place datasets (data, dataV2) in the correct directory structure as shown in the project.
 
 download https://www.kaggle.com/code/wldzia/pedestrian-detection-using-cnn
@@ -24,8 +45,7 @@ and place the dataset in 'data' folder
 download https://www.kaggle.com/datasets/kazushiadachi/human-portrait-or-not-128128-binary-and-rgb/data
 and place the dataset in 'dataV2' folder
 
-
-
+## file-descriptions
 
 PersonDetectionOriginal.py
 
@@ -41,11 +61,12 @@ VOCtoYOLO.py
 
 Converts annotation files from the Pascal VOC format to the YOLO format.
 Essential for preparing datasets for YOLO-based training.
+Look at How to Use This Repository to get yolo first.
 
 PedestrianDetectionYolo.py
 
-Trains the YOLO pre-trained model using the data dataset for pedestrian detection.
-Focused on leveraging YOLO's strengths for person detection tasks.
+Trains the YOLO pre-trained model using the data dataset for pedestrian detection. YOLO performance is way better than our model.
+It can even draw around person, but it's still a pre-trained model. We planed to train our own.
 
 RGBImageGenerator.py
 
@@ -54,12 +75,11 @@ These RGB images were used to train a model (person2.h5) on the data dataset. Ho
 
 xmlGenerator.py
 
-Automatically generates Pascal VOC XML annotation files for no-person scenarios.
-Useful for augmenting datasets by adding annotations for images without any people.
+Automatically generates XML annotation files for no-person scenarios.
 
 Txt_changer.py
 
-Updates and manages text file lists (txt files) that correspond to image datasets in the data folder.
+Updates and manages text file lists (txt files) that correspond to image datasets in the 'data' folder.
 Helps synchronize image datasets with corresponding text annotations.
 
 PicGeneratorYolo.py
@@ -87,3 +107,10 @@ person.h5: The model trained using the original dataset with poor performance.
 person2.h5: The model trained using RGB-generated images but failed to generalize due to pattern-based learning.
 person3.h5: A refined model trained using an augmented dataset where human figures were pixelated, significantly improving performance.
 Person_V2.h5: Model trained using the improved dataV2 dataset.
+
+
+
+
+
+
+
