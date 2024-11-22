@@ -24,7 +24,8 @@ Project for person detection using custom-trained models and YOLO.
 opencv：
 ```bash
 pip install opencv-python
-pip install opencv-python-headless```
+pip install opencv-python-headless
+```bash
 
 yolov5:
 ```bash
