@@ -13,8 +13,7 @@ Project for person detection using custom-trained models and YOLO.
 - [Setup Instructions](#setup-instructions)
 
 
-
-How to Use This Repository ##how-to-use-this-repository
+##how-to-use-this-repository
 Prepare the Environment:
 
 Ensure OpenCV, TensorFlow, and other required libraries are installed.
