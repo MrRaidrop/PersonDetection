@@ -107,10 +107,15 @@ Detects and marks faces in the dataV2 dataset.
 Automatically generates Pascal VOC XML annotations for all detected faces.
 
 Models in the Repository
+
 person.h5: The model trained using the original dataset with poor performance.
+
 person2.h5: The model trained using RGB-generated images but failed to generalize due to pattern-based learning.
+
 person3.h5: A refined model trained using an augmented dataset where human figures were pixelated, significantly improving performance.
+
 Person_V2.h5: Model trained using the improved dataV2 dataset.
+
 
 ## work-remain
 
