@@ -25,7 +25,7 @@ opencv：
 
 ```bash
 pip install opencv-python
-pip install opencv-python-headless```
+pip install opencv-python-headless\`\`\`
 
 
 
