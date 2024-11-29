@@ -16,8 +16,8 @@ Project for person detection using custom-trained models and YOLO.
 - Python 3.10 or higher
 - TensorFlow 2.11 (if you don't want to use cuda, just use lastest version)
 - OpenCV 4.10
-- CUDA 11.8 (if you don't want to use cuda, just ignore it)
-- cuDNN 8.8 (if you don't want to use cuda, just ignore it)
+- CUDA 11.8 (if you don't want to plan cuda, just ignore it)
+- cuDNN 8.8 (if you don't want to plan cuda, just ignore it)
 
 ### Prepare the Environment:
 opencv：
