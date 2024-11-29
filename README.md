@@ -115,7 +115,7 @@ person2.h5: The model trained using RGB-generated images but failed to generaliz
 
 person3.h5: A refined model trained using an augmented dataset where human figures were pixelated, significantly improving performance.
 
-Person_V2.h5: Model trained using the improved dataV2 dataset.
+Person_V2.h5: Model trained using the improved dataV2 dataset. Acceptable result.
 
 
 ## work-remain
