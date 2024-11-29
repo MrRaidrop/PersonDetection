@@ -70,7 +70,7 @@ Look at How to Use This Repository to get yolo first.
 **PedestrianDetectionYolo.py**
 
 Trains the YOLO pre-trained model using the data dataset for pedestrian detection. YOLO performance is way better than our model.
-It can even draw around person, but it's still a pre-trained model. We planed to train our own.
+It can even draw around person, but it's still a pre-trained model. **We planed to train our own**.
 
 **RGBImageGenerator.py**
 
@@ -83,7 +83,7 @@ Automatically generates XML annotation files for no-person scenarios.
 
 **Txt_changer.py**
 
-Updates and manages text file lists (txt files) that correspond to image datasets in the 'data' folder.
+Updates and manages text file lists (txt files) that correspond to image datasets in the '**data**' folder.
 Helps synchronize image datasets with corresponding text annotations.
 
 **PicGeneratorYolo.py**
@@ -93,17 +93,17 @@ Uses YOLO to blur or pixelate all human figures in the data dataset, labeling th
 
 **TrainModelV1.py**
 
-A training script specifically designed to train models on the data dataset.
+A training script specifically designed to train models on the '**data**' dataset.
 Focuses on improving person detection performance within this dataset.
 
 **TrainModelV2.py**
 
-An improved training script designed for the dataV2 dataset, which includes a significantly larger collection of 35,000 images.
+An improved training script designed for the '**dataV2**' dataset, which includes a significantly larger collection of 35,000 images.
 Aims to train higher-quality models with a more comprehensive dataset.
 
 **Face_Mark_Script.py**
 
-Detects and marks faces in the dataV2 dataset.
+Detects and marks faces in the '**dataV2**' dataset.
 Automatically generates Pascal VOC XML annotations for all detected faces.
 
 
@@ -120,12 +120,12 @@ Person_V2.h5: Model trained using the improved dataV2 dataset.
 
 ## work-remain
 
-**Integrate Face Detection into Video Processing:**
+**Integrate Face Detection into Video Processing:** (done, update later)
 
 The Face_Mark_Script.py has been used to annotate faces in the dataV2 dataset with Pascal VOC XML format.
 The next step is to train a model specifically for face detection using these annotations and integrate it into the VideoPersonDetection.py script.
 
-**Enhance Real-Time Video Detection:**
+**Enhance Real-Time Video Detection:**(done, update later)
 
 Modify the video detection pipeline to identify faces in real-time and draw bounding boxes around them.
 
