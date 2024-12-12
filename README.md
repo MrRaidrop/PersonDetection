@@ -138,7 +138,7 @@ person3.h5: A refined model trained using an augmented dataset where human figur
 
 Person_V2.h5: Model trained using the improved dataV2 dataset. Acceptable result.
 
-face_detection_model.h5: The model trained using images of datasetV2, using Yolo to mark the faces. The outcome is acceptable, can somehow track faces, still need fine-tune, can not deal with edge cases.
+face_detection_model.h5: The model trained using images of datasetV2. The outcome is acceptable, can somehow track faces, still need fine-tune, can not deal with edge cases.
 
 ## work-remain
 
