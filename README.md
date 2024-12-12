@@ -106,6 +106,27 @@ Aims to train higher-quality models with a more comprehensive dataset.
 Detects and marks faces in the '**dataV2**' dataset.
 Automatically generates Pascal VOC XML annotations for all detected faces.
 
+**Face_Mark_Script.py**
+
+Detects and marks faces in the '**dataV2**' dataset using **haar_cascade**.
+Automatically generates Pascal VOC XML annotations for all detected faces.
+
+**TrainFaceModel.py**
+
+use the detected and marked faces in the '**dataV2**' dataset to generate face_detection_model.h5
+Need a long process same as the TrainV2.
+
+**testFaceMark.py**
+
+Test if haar_cascade mark the dataset right. A set of marked picture will show up.
+
+**testFaceModel.py**
+
+Test if the face_detection_model.h5 mark the pictures right. A set of marked picture will show up.
+
+**VideoV2Face.py**
+
+Will open your camera and use two models to detect if there is person and if where is the face in real-tiem.
 
 **Models in the Repository**
 
@@ -121,23 +142,21 @@ face_detection_model.h5: The model trained using images of datasetV2, using Yolo
 
 ## work-remain
 
-**Integrate Face Detection into Video Processing:** (done)
+**Integrate Face Detection into Video Processing:** (finished, updated)
 
 The Face_Mark_Script.py has been used to annotate faces in the dataV2 dataset with Pascal VOC XML format.
 The next step is to train a model specifically for face detection using these annotations and integrate it into the VideoPersonDetection.py script.
 
-**Enhance Real-Time Video Detection:**(done)
+**Enhance Real-Time Video Detection:**(updated)
 
 Modify the video detection pipeline to identify faces in real-time and draw bounding boxes around them.
 
 **Edge Cases:**
 The model still can not detect face in the edge of the screen, probabily can be fix by moving some proportioon faces of the dataset to the edge and rebuild the model.
 
-
 **Optimize and Fine-Tune:**
 
-Fine-tune the face detection model for accuracy and real-time performance.
-Test the model on diverse video inputs to ensure robustness and precision.
+The har_cascade detect two eyes at first and then the facce, that maybe a better approach, maybe use that method.
 
 
 
