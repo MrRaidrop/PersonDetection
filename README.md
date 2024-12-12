@@ -156,7 +156,7 @@ The model still can not detect face in the edge of the screen, probabily can be 
 
 **Optimize and Fine-Tune:**
 
-The har_cascade detect two eyes at first and then the facce, that maybe a better approach, maybe use that method.
+The har_cascade detect two eyes at first and then the face, that maybe a better approach, maybe use that method.
 
 
 
