@@ -8,8 +8,7 @@ Project for person detection using custom-trained models and YOLO.
 - [Introduction](#introduction)
 - [How to Use This Repository](#how-to-use-this-repository)
 - [File Descriptions](#file-descriptions)
-- [Project Structure](#project-structure)
-- [Setup Instructions](#setup-instructions)
+- [Work Remain](#work-remain)
 
 ## how-to-use-this-repository
 
@@ -17,22 +16,24 @@ Project for person detection using custom-trained models and YOLO.
 - Python 3.10 or higher
 - TensorFlow 2.11 (if you don't want to use cuda, just use lastest version)
 - OpenCV 4.10
-- CUDA 11.8 (if you don't want to use cuda, just ignore it)
-- cuDNN 8.8 (if you don't want to use cuda, just ignore it)
+- CUDA 11.8 (if you don't want to plan cuda, just ignore it)
+- cuDNN 8.8 (if you don't want to plan cuda, just ignore it)
 
 ### Prepare the Environment:
 opencv：
 
-```bash
-pip install opencv-python
-pip install opencv-python-headless```
+`pip install opencv-python`
+
+`pip install opencv-python-headless`
 
 
 
 yolov5:
 
 `git clone https://github.com/ultralytics/yolov5.git`
+
 `cd yolov5`
+
 `pip install -r requirements.txt`
 
 - NumPy, Pandas, and other standard libraries
@@ -50,68 +51,93 @@ and place the dataset in 'dataV2' folder
 
 ## file-descriptions
 
-PersonDetectionOriginal.py
+**PersonDetectionOriginal.py**
 
 This script uses the original dataset to train a person detection model with two classes: person and person-like.
 Performance was poor regardless of parameter tuning, as the dataset lacked images with no-person scenarios.
 
-VideoPersonDetection.py
+**VideoPersonDetection.py**
 
 This script captures frames from the webcam and detects people in the images.
 Initially used the PersonDetectionOriginal.py model but demonstrated poor performance. The script has since evolved to test better models.
 
-VOCtoYOLO.py
+**VOCtoYOLO.py**
 
 Converts annotation files from the Pascal VOC format to the YOLO format.
 Essential for preparing datasets for YOLO-based training.
 Look at How to Use This Repository to get yolo first.
 
-PedestrianDetectionYolo.py
+**PedestrianDetectionYolo.py**
 
 Trains the YOLO pre-trained model using the data dataset for pedestrian detection. YOLO performance is way better than our model.
-It can even draw around person, but it's still a pre-trained model. We planed to train our own.
+It can even draw around person, but it's still a pre-trained model. **We planed to train our own**.
 
-RGBImageGenerator.py
+**RGBImageGenerator.py**
 
 Generates RGB block images with visually similar color patterns.
 These RGB images were used to train a model (person2.h5) on the data dataset. However, the resulting model learned to classify based on visual patterns rather than actual person detection.
 
-xmlGenerator.py
+**xmlGenerator.py**
 
 Automatically generates XML annotation files for no-person scenarios.
 
-Txt_changer.py
+**Txt_changer.py**
 
-Updates and manages text file lists (txt files) that correspond to image datasets in the 'data' folder.
+Updates and manages text file lists (txt files) that correspond to image datasets in the '**data**' folder.
 Helps synchronize image datasets with corresponding text annotations.
 
-PicGeneratorYolo.py
+**PicGeneratorYolo.py**
 
 Identifies a critical flaw in the RGB-trained model (person2.h5), which misclassified based on image center color differences rather than actual human features.
 Uses YOLO to blur or pixelate all human figures in the data dataset, labeling them as no-person. This augmented dataset was used to train a better model (person3.h5).
 
-TrainModelV1.py
+**TrainModelV1.py**
 
-A training script specifically designed to train models on the data dataset.
+A training script specifically designed to train models on the '**data**' dataset.
 Focuses on improving person detection performance within this dataset.
 
-TrainModelV2.py
+**TrainModelV2.py**
 
-An improved training script designed for the dataV2 dataset, which includes a significantly larger collection of 35,000 images.
+An improved training script designed for the '**dataV2**' dataset, which includes a significantly larger collection of 35,000 images.
 Aims to train higher-quality models with a more comprehensive dataset.
 
-Face_Mark_Script.py
+**Face_Mark_Script.py**
 
-Detects and marks faces in the dataV2 dataset.
+Detects and marks faces in the '**dataV2**' dataset.
 Automatically generates Pascal VOC XML annotations for all detected faces.
 
-Models in the Repository
+
+**Models in the Repository**
+
 person.h5: The model trained using the original dataset with poor performance.
+
 person2.h5: The model trained using RGB-generated images but failed to generalize due to pattern-based learning.
+
 person3.h5: A refined model trained using an augmented dataset where human figures were pixelated, significantly improving performance.
-Person_V2.h5: Model trained using the improved dataV2 dataset.
+
+Person_V2.h5: Model trained using the improved dataV2 dataset. Acceptable result.
+
+face_detection_model.h5: The model trained using images of datasetV2, using Yolo to mark the faces. The outcome is acceptable, can somehow track faces, still need fine-tune, can not deal with edge cases.
+
+## work-remain
+
+**Integrate Face Detection into Video Processing:** (done)
+
+The Face_Mark_Script.py has been used to annotate faces in the dataV2 dataset with Pascal VOC XML format.
+The next step is to train a model specifically for face detection using these annotations and integrate it into the VideoPersonDetection.py script.
+
+**Enhance Real-Time Video Detection:**(done)
+
+Modify the video detection pipeline to identify faces in real-time and draw bounding boxes around them.
+
+**Edge Cases:**
+The model still can not detect face in the edge of the screen, probabily can be fix by moving some proportioon faces of the dataset to the edge and rebuild the model.
 
 
+**Optimize and Fine-Tune:**
+
+Fine-tune the face detection model for accuracy and real-time performance.
+Test the model on diverse video inputs to ensure robustness and precision.
 
 
 
