@@ -120,14 +120,18 @@ Person_V2.h5: Model trained using the improved dataV2 dataset. Acceptable result
 
 ## work-remain
 
-**Integrate Face Detection into Video Processing:** (done, update later)
+**Integrate Face Detection into Video Processing:** (done)
 
 The Face_Mark_Script.py has been used to annotate faces in the dataV2 dataset with Pascal VOC XML format.
 The next step is to train a model specifically for face detection using these annotations and integrate it into the VideoPersonDetection.py script.
 
-**Enhance Real-Time Video Detection:**(done, update later)
+**Enhance Real-Time Video Detection:**(done)
 
 Modify the video detection pipeline to identify faces in real-time and draw bounding boxes around them.
+
+**Edge Cases:**
+The model still can not detect face in the edge of the screen, probabily can be fix by moving some proportioon faces of the dataset to the edge and rebuild the model.
+
 
 **Optimize and Fine-Tune:**
 
